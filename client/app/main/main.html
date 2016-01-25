@@ -1,0 +1,53 @@
+<navbar></navbar>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
+
+    <button class="btn btn-lg btn-success"  ng-disabled="main.inProgress" ng-click="main.init()">Start</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1 class="page-header">Process:</h1>
+      <ul class="list-group" ng-repeat="process in main.process track by $index ">
+        <li class="list-group-item list-group-item-{{process.type}}">
+          <label ng-bind="process.name"></label>:
+          <span ng-bind="process.key"></span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h1 class="page-header">Output:</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="(key, value) in main.output track by $index">
+        <li><a href="">
+          <span ng-bind="key"></span>:
+          <span ng-bind="value"></span>
+        </a></li>
+
+      </ul>
+    </div>
+    <div class="col-lg-4">
+      <h1 class="page-header">Settings:</h1>
+
+      <form class="thing-form">
+        <label>Syncs in realtime across clients</label>
+        <p class="input-group">
+          <input ng-disabled="main.inProgress" type="number" class="form-control" placeholder="Product Total Number" ng-model="main.options.totalNumber">
+
+        </p>
+        <p class="input-group">
+          <input ng-disabled="main.inProgress" type="number" class="form-control" placeholder="Wheel size (mm)" ng-model="main.options.wheelSize">
+
+        </p>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+<footer></footer>
